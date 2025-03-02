@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script type="text/javascript">
-        // Obtiene la ruta de la URL (sin el dominio)
-        var path = window.location.pathname.replace(/\/$/, ""); // Elimina la barra final si existe
-
-        // Definir redirecciones personalizadas
-        var redirects = {
-            "/privacy-policy": "https://sites.google.com/view/pdforder/privacy-policy",
-            "/terms-of-service": "https://sites.google.com/view/pdforder/terms-of-service",
-        };
-
-        // Si la ruta está en la lista de redirecciones, redirigir
-        if (redirects[path]) {
-            window.location.href = redirects[path];
-        } else {
-            // Si no, redirigir a la página principal de Google Sites
-            window.location.href = "https://sites.google.com/view/pdforder/privacy-policy";
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando...</title>
 </head>
 <body>
     <p>Redirigiendo...</p>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtiene la ruta actual sin la barra final
+            var path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+
+            // Definir redirecciones personalizadas
+            var redirects = {
+                "/privacy-policy": "https://sites.google.com/view/pdforder/privacy-policy",
+                "/terms-of-service": "https://sites.google.com/view/pdforder/terms-of-service"
+            };
+
+            console.log("Path actual:", path); // Ver para depuración
+
+            // Si la ruta coincide, redirige
+            if (redirects[path]) {
+                console.log("Redirigiendo a:", redirects[path]); // Depuración
+                window.location.href = redirects[path];
+            } else {
+                console.log("No se encontró redirección, enviando a home.");
+                window.location.href = "https://sites.google.com/view/pdforder";
+            }
+        });
+    </script>
 </body>
 </html>
 
