@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando...</title>
+</head>
+<body>
+    <p>Redirigiendo...</p>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var path = window.location.pathname.toLowerCase();
+            if (path.endsWith("/")) path = path.slice(0, -1);
+
+            var redirects = {
+                "/privacy-policy": "https://sites.google.com/view/pdforder/privacy-policy",
+                "/terms-of-service": "https://sites.google.com/view/pdforder/terms-of-service"
+            };
+
+            if (redirects[path]) {
+                window.location.href = redirects[path];
+            } else {
+                window.location.href = "https://sites.google.com/view/pdforder";
+            }
+        });
+    </script>
+</body>
+</html>
