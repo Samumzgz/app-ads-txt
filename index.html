@@ -11,7 +11,9 @@
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             // Obtiene la ruta actual sin la barra final
-            var path = window.location.pathname.replace(/\/$/, "").toLowerCase();
+            var path = window.location.pathname.toLowerCase();
+            if (path.endsWith("/")) path = path.slice(0, -1);
+
 
             // Definir redirecciones personalizadas
             var redirects = {
@@ -19,19 +21,18 @@
                 "/terms-of-service": "https://sites.google.com/view/pdforder/terms-of-service"
             };
 
-            console.log("Path actual:", path); // Ver para depuración
 
             // Si la ruta coincide, redirige
             if (redirects[path]) {
-                console.log("Redirigiendo a:", redirects[path]); // Depuración
                 window.location.href = redirects[path];
             } else {
-                console.log("No se encontró redirección, enviando a home.");
                 window.location.href = "https://sites.google.com/view/pdforder";
             }
+            
         });
     </script>
 </body>
 </html>
+
 
 
