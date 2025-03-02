@@ -3,7 +3,7 @@
 <head>
     <script type="text/javascript">
         // Obtiene la ruta de la URL (sin el dominio)
-        var path = window.location.pathname;
+        var path = window.location.pathname.replace(/\/$/, ""); // Elimina la barra final si existe
 
         // Definir redirecciones personalizadas
         var redirects = {
