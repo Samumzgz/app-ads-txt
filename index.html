@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="refresh" content="0;url=https://sites.google.com/view/pdforder">
     <script type="text/javascript">
-        setTimeout(function() {
-           window.location.href = "https://sites.google.com/view/pdforder";
-        }, 0);
+        // Obtiene la ruta de la URL (sin el dominio)
+        var path = window.location.pathname;
+
+        // Definir redirecciones personalizadas
+        var redirects = {
+            "/privacy-policy": "https://sites.google.com/view/pdforder/privacy-policy",
+            "/terms-of-service": "https://sites.google.com/view/pdforder/terms-of-service",
+        };
+
+        // Si la ruta está en la lista de redirecciones, redirigir
+        if (redirects[path]) {
+            window.location.href = redirects[path];
+        } else {
+            // Si no, redirigir a la página principal de Google Sites
+            window.location.href = "https://sites.google.com/view/pdforder";
+        }
     </script>
 </head>
 <body>
     <p>Redirigiendo...</p>
 </body>
 </html>
+
 
